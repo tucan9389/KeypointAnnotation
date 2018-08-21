@@ -223,11 +223,12 @@ class Annotation: Decodable, Encodable {
         ],*/
         let name: String//": "fingertip"
         init() {
-            supercategory = "hand"
-            name = "fingertip"
+            supercategory = "bust"
+            name = "body"
             id = 1
-            keypoints = ["index", "index DIP", "index PIP", "index MP"/*, "middle", "ring", "baby", "thumb"*/]
-            skeleton = [[1,2], [2,3], [3,4]]
+//            keypoints = ["index", "index DIP", "index PIP", "index MP"/*, "middle", "ring", "baby", "thumb"*/]
+            keypoints = ["head", "nose", "Rshoulder", "Lshoulder"]
+            skeleton = [[1,2], [2,3], [2,4]]
         }
     }
     
