@@ -67,6 +67,11 @@ class AnnotationViewController: UIViewController {
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.bottomControlView.frame = self.bottomControlView.frame
+    }
+    
     func readAnnotation(completion: @escaping (Bool)->()) {
         if let info = videoInfo {
             let jsonURL: URL = info.annotationJSONURL

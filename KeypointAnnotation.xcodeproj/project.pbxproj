@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55271324212BE7340096F27E /* Annotated.zip in Resources */ = {isa = PBXBuildFile; fileRef = 55271323212BE7340096F27E /* Annotated.zip */; };
 		554F9FD5211F3AFC00FBF04E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9FD4211F3AFC00FBF04E /* AppDelegate.swift */; };
 		554F9FD7211F3AFC00FBF04E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9FD6211F3AFC00FBF04E /* MainViewController.swift */; };
 		554F9FDA211F3AFC00FBF04E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554F9FD8211F3AFC00FBF04E /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		28380CF27C5E4F69D8880B85 /* Pods_KeypointAnnotation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeypointAnnotation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55271323212BE7340096F27E /* Annotated.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Annotated.zip; sourceTree = "<group>"; };
 		554F9FD1211F3AFC00FBF04E /* KeypointAnnotation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeypointAnnotation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		554F9FD4211F3AFC00FBF04E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		554F9FD6211F3AFC00FBF04E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				554F9FDB211F3AFE00FBF04E /* Assets.xcassets */,
 				554F9FDD211F3AFE00FBF04E /* LaunchScreen.storyboard */,
 				554F9FE0211F3AFE00FBF04E /* Info.plist */,
+				55271323212BE7340096F27E /* Annotated.zip */,
 			);
 			path = KeypointAnnotation;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 				554F9FDF211F3AFE00FBF04E /* LaunchScreen.storyboard in Resources */,
 				554F9FDC211F3AFE00FBF04E /* Assets.xcassets in Resources */,
 				554F9FDA211F3AFC00FBF04E /* Main.storyboard in Resources */,
+				55271324212BE7340096F27E /* Annotated.zip in Resources */,
 				554F9FEB211F3C9700FBF04E /* UIKit + extension in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,6 +375,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5WXJ4Z4H69;
 				INFOPLIST_FILE = KeypointAnnotation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -390,6 +395,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5WXJ4Z4H69;
 				INFOPLIST_FILE = KeypointAnnotation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
