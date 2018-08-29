@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		55271324212BE7340096F27E /* Annotated.zip in Resources */ = {isa = PBXBuildFile; fileRef = 55271323212BE7340096F27E /* Annotated.zip */; };
 		554F9FD5211F3AFC00FBF04E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9FD4211F3AFC00FBF04E /* AppDelegate.swift */; };
 		554F9FD7211F3AFC00FBF04E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9FD6211F3AFC00FBF04E /* MainViewController.swift */; };
 		554F9FDA211F3AFC00FBF04E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554F9FD8211F3AFC00FBF04E /* Main.storyboard */; };
@@ -16,12 +15,12 @@
 		554F9FE8211F3C9000FBF04E /* AnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9FE6211F3C9000FBF04E /* AnnotationViewController.swift */; };
 		554F9FE9211F3C9000FBF04E /* MyFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9FE7211F3C9000FBF04E /* MyFileManager.swift */; };
 		554F9FEB211F3C9700FBF04E /* UIKit + extension in Resources */ = {isa = PBXBuildFile; fileRef = 554F9FEA211F3C9700FBF04E /* UIKit + extension */; };
+		55AE136B213260290065B794 /* Annotated.zip in Resources */ = {isa = PBXBuildFile; fileRef = 55AE136A213260290065B794 /* Annotated.zip */; };
 		7E5060C540CD748A14A2FDB3 /* Pods_KeypointAnnotation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28380CF27C5E4F69D8880B85 /* Pods_KeypointAnnotation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		28380CF27C5E4F69D8880B85 /* Pods_KeypointAnnotation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeypointAnnotation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		55271323212BE7340096F27E /* Annotated.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Annotated.zip; sourceTree = "<group>"; };
 		554F9FD1211F3AFC00FBF04E /* KeypointAnnotation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeypointAnnotation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		554F9FD4211F3AFC00FBF04E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		554F9FD6211F3AFC00FBF04E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +31,7 @@
 		554F9FE6211F3C9000FBF04E /* AnnotationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewController.swift; sourceTree = "<group>"; };
 		554F9FE7211F3C9000FBF04E /* MyFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFileManager.swift; sourceTree = "<group>"; };
 		554F9FEA211F3C9700FBF04E /* UIKit + extension */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "UIKit + extension"; sourceTree = "<group>"; };
+		55AE136A213260290065B794 /* Annotated.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Annotated.zip; sourceTree = "<group>"; };
 		C890B5484D062A6B0031B60E /* Pods-KeypointAnnotation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeypointAnnotation.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeypointAnnotation/Pods-KeypointAnnotation.release.xcconfig"; sourceTree = "<group>"; };
 		CF669133AB03C68304B3F247 /* Pods-KeypointAnnotation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeypointAnnotation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KeypointAnnotation/Pods-KeypointAnnotation.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,7 +78,7 @@
 				554F9FDB211F3AFE00FBF04E /* Assets.xcassets */,
 				554F9FDD211F3AFE00FBF04E /* LaunchScreen.storyboard */,
 				554F9FE0211F3AFE00FBF04E /* Info.plist */,
-				55271323212BE7340096F27E /* Annotated.zip */,
+				55AE136A213260290065B794 /* Annotated.zip */,
 			);
 			path = KeypointAnnotation;
 			sourceTree = "<group>";
@@ -163,7 +163,7 @@
 				554F9FDF211F3AFE00FBF04E /* LaunchScreen.storyboard in Resources */,
 				554F9FDC211F3AFE00FBF04E /* Assets.xcassets in Resources */,
 				554F9FDA211F3AFC00FBF04E /* Main.storyboard in Resources */,
-				55271324212BE7340096F27E /* Annotated.zip in Resources */,
+				55AE136B213260290065B794 /* Annotated.zip in Resources */,
 				554F9FEB211F3C9700FBF04E /* UIKit + extension in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
