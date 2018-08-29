@@ -169,6 +169,13 @@ class Annotation: Decodable, Encodable {
         let width: Int
         let height: Int
         let id: Int
+        
+        init(file_name: String, width: Int, height: Int, id: Int) {
+            self.file_name = file_name
+            self.width = width
+            self.height = height
+            self.id = id
+        }
     }
     class KeypointAnnotation: Decodable, Encodable {
         var num_keypoints: Int // 11,
