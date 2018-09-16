@@ -287,15 +287,19 @@ extension AnnotationViewController: BottomControlViewDelegate {
     @objc func nextImage() {
         guard let annotationInfo = self.annotationInfo else { return; }
         if self.index < annotationInfo.images.count-1 {
+            if mainImageView?.updateKeypoint() ?? false {
+                save()
+            }
             self.set(index: self.index + 1)
-            save()
         }
     }
     @objc func previousImage() {
         guard let _ = self.annotationInfo else { return; }
         if self.index > 0 {
+            if mainImageView?.updateKeypoint() ?? false {
+                save()
+            }
             self.set(index: self.index - 1)
-            save()
         }
     }
 }
@@ -700,6 +704,25 @@ class AnnotationImageView: UIImageView {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if updateKeypoint() == true {
+            save()
+        }
+    }
+    
+    public func updateKeypoint() -> Bool {
+        if let currentKeypoint = currentKeypoint(),
+            let keypointAnnotation = self.keypointAnnotation {
+            
+            keypointAnnotation.keypoints[index*3 + 0] = Int(currentKeypoint.x)
+            keypointAnnotation.keypoints[index*3 + 1] = Int(currentKeypoint.y)
+            
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func currentKeypoint() -> CGPoint? {
         let p = pointingViews[index].center
         var xr: CGFloat = p.x/self.frame.width
         var yr: CGFloat = p.y/self.frame.height
@@ -708,14 +731,13 @@ class AnnotationImageView: UIImageView {
         if yr < 0 { yr = 0 }
         else if yr > 1 { yr = 1 }
         
-        if let image = self.image, let keypointAnnotation = self.keypointAnnotation {
+        if let image = self.image {
             let x = xr * image.size.width
             let y = yr * image.size.height
             
-            keypointAnnotation.keypoints[index*3 + 0] = Int(x)
-            keypointAnnotation.keypoints[index*3 + 1] = Int(y)
-            
-            save()
+            return CGPoint(x: x, y: y)
+        } else {
+            return nil
         }
     }
 }
