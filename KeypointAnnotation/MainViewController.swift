@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var mainTableView: UITableView!
     
-    var data: [VideoModel] = []
+    var data: [ImageAnnotationGroup] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,7 @@ class MainViewController: UIViewController {
         let annotatedURLs: [URL]? = MyFileManager.shared.filenames(of: MyFileManager.shared.annotatedPath)
         if let urls: [URL] = annotatedURLs {
             self.data = urls.map { url in
-                return VideoModel(url: url)
+                return ImageAnnotationGroup(url: url)
             }
         }
         self.mainTableView.reloadData()
@@ -80,7 +80,7 @@ class MainViewController: UIViewController {
             let annotationViewController = segue.destination as? AnnotationViewController,
             let indexPath = self.mainTableView.indexPathForSelectedRow {
             
-            annotationViewController.videoInfo = data[indexPath.row]
+            annotationViewController.imageAnnotationGroup = data[indexPath.row]
         }
     }
     
@@ -115,7 +115,7 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "AnnotationCell", for: indexPath)
         if let annotationCell: AnnotationCell = cell as? AnnotationCell {
-            annotationCell.set(videoInfo: data[indexPath.row])
+            annotationCell.set(imageAnnotationGroup: data[indexPath.row])
         }
         return cell
     }
@@ -130,14 +130,14 @@ class AnnotationCell: UITableViewCell {
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!
     
-    func set(videoInfo: VideoModel) {
+    func set(imageAnnotationGroup: ImageAnnotationGroup) {
         self.mainImageView.backgroundColor = UIColor(red: 1.0, green: 0.8, blue: 0.8, alpha: 0.5)
-        self.mainImageView.image = videoInfo.firstImage
+        self.mainImageView.image = imageAnnotationGroup.firstImage
         // self.mainImageView.clipsToBounds = true
         self.mainImageView.contentMode = .scaleAspectFit
-        self.label1.text = videoInfo.filename
-        self.label2.text = "\(String(format: "%04d", videoInfo.annotatedImageCount)) / \(String(format: "%04d", videoInfo.imageCount))"
-        let rate: Double = Double(videoInfo.annotatedImageCount) / Double(videoInfo.imageCount)
+        self.label1.text = imageAnnotationGroup.filename
+        self.label2.text = "\(String(format: "%04d", imageAnnotationGroup.annotatedImageCount)) / \(String(format: "%04d", imageAnnotationGroup.imageCount))"
+        let rate: Double = Double(imageAnnotationGroup.annotatedImageCount) / Double(imageAnnotationGroup.imageCount)
         if rate == 1.0 {
             let color = UIColor(hexString: "#24E064")
             self.label2.textColor = UIColor(red: color.redComponent, green: color.greenComponent, blue: color.blueComponent, alpha: 0.9)
@@ -151,7 +151,7 @@ class AnnotationCell: UITableViewCell {
     }
 }
 
-class VideoModel {
+class ImageAnnotationGroup {
     let url: URL
     var filename: String {
         return url.lastPathComponent

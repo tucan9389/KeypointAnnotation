@@ -11,10 +11,10 @@ import Alamofire
 import ZIPFoundation
 
 /*
- ├ Original_Video
+ ├ Original_Video (Not support yet)
     ├ IMG_9381.MOV
     ├ IMG_8381.MOV
- ├ Original_Image
+ ├ Original_Image (Not support yet)
     ├ IMG_9383.HEIV
     ├ IMG_8382.HEIV
  ├ Annotated

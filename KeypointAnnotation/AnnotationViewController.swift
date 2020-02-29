@@ -15,16 +15,18 @@ class AnnotationViewController: UIViewController {
     @IBOutlet weak var categoryView: AnnotationCategoryView!
     @IBOutlet weak var bottomControlView: BottomControlView!
     
-    var videoInfo: VideoModel? = nil
+    var imageAnnotationGroup: ImageAnnotationGroup? = nil
     var annotationInfo: Annotation? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // title
-        self.title = videoInfo?.filename ?? "N/A"
+        self.title = imageAnnotationGroup?.filename ?? "N/A"
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(export))
+        let exportItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(export))
+        let resetItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(reset))
+        self.navigationItem.rightBarButtonItems = [exportItem, resetItem]
         
         // bottom control
         bottomControlView.backgroundColor = UIColor(red: 1.0, green: 0.9, blue: 0.9, alpha: 0.2)
@@ -37,7 +39,7 @@ class AnnotationViewController: UIViewController {
         self.mainImageView.delegate = self
         
             
-        print(videoInfo?.url ?? "N/A")
+        print(imageAnnotationGroup?.url ?? "N/A")
         readAnnotation() { success in
             DispatchQueue.main.async {
 //                let categoryAnnotation: Annotation.CategoryAnnotation = Annotation.CategoryAnnotation()
@@ -60,7 +62,7 @@ class AnnotationViewController: UIViewController {
                 self.mainImageView.categoryColors = colors
                 self.mainImageView.categoryAnnotation = categoryAnnotation
                 
-                self.bottomControlView.imagesURL = self.videoInfo?.imagesURL
+                self.bottomControlView.imagesURL = self.imageAnnotationGroup?.imagesURL
                 self.bottomControlView.images = self.annotationInfo?.images ?? []
                 self.bottomControlView.reloadThumbnails()
                 
@@ -75,7 +77,7 @@ class AnnotationViewController: UIViewController {
     }
     
     func readAnnotation(completion: @escaping (Bool)->()) {
-        if let info = videoInfo {
+        if let info = imageAnnotationGroup {
             let jsonURL: URL = info.annotationJSONURL
             let decoder = JSONDecoder()
             do {
@@ -97,7 +99,7 @@ class AnnotationViewController: UIViewController {
     }
     
     func writeAnnotation(completion: @escaping (Bool)->()) {
-        if let info = videoInfo {
+        if let info = imageAnnotationGroup {
             let jsonURL: URL = info.annotationJSONURL
             let encoder = JSONEncoder()
             do {
@@ -118,7 +120,7 @@ class AnnotationViewController: UIViewController {
         self.index = index
         
         if let annotationInfo = annotationInfo,
-            let imageURL = videoInfo?.imagesURL.appendingPathComponent(annotationInfo.images[index].file_name) {
+            let imageURL = imageAnnotationGroup?.imagesURL.appendingPathComponent(annotationInfo.images[index].file_name) {
             let imageInfo: Annotation.ImageAnnotation = annotationInfo.images[index]
             
             print(imageInfo.file_name)
@@ -138,10 +140,15 @@ class AnnotationViewController: UIViewController {
     
     @objc func export() {
         print("export!")
-        if let info = videoInfo {
+        if let info = imageAnnotationGroup {
             let vc = UIActivityViewController(activityItems: [info.annotationJSONURL], applicationActivities: [])
             present(vc, animated: true, completion: nil)
         }
+    }
+    
+    @objc func reset() {
+        print("reset!")
+        
     }
 }
 
