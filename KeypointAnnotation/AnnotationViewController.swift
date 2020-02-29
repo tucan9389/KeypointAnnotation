@@ -11,9 +11,9 @@ import DynamicColor
 
 class AnnotationViewController: UIViewController {
     
-    @IBOutlet weak var mainImageView: AnnotationImageView!
-    @IBOutlet weak var bottomControlView: AnnotationBottomControlView!
-    @IBOutlet weak var categoryView: AnnotationCategoryView!
+    @IBOutlet weak var mainImageView: AnnotationImageView?
+    @IBOutlet weak var bottomControlView: AnnotationBottomControlView?
+    @IBOutlet weak var categoryView: AnnotationCategoryView?
     
     var imageAnnotationGroup: ImageAnnotationGroup? = nil
     var annotationInfo: Annotation? = nil
@@ -28,14 +28,14 @@ class AnnotationViewController: UIViewController {
         self.navigationItem.rightBarButtonItems = [resetItem, exportItem]
         
         // bottom control
-        bottomControlView.backgroundColor = UIColor(red: 1.0, green: 0.9, blue: 0.9, alpha: 0.2)
-        bottomControlView.delegate = self
+        bottomControlView?.backgroundColor = UIColor(red: 1.0, green: 0.9, blue: 0.9, alpha: 0.2)
+        bottomControlView?.delegate = self
         
         // category view
-        self.categoryView.delegate = self
+        categoryView?.delegate = self
         
         // image view
-        self.mainImageView.delegate = self
+        mainImageView?.delegate = self
         
             
         print(imageAnnotationGroup?.url ?? "N/A")
@@ -57,14 +57,14 @@ class AnnotationViewController: UIViewController {
                 
                 let colors = gradient.colorPalette(amount: UInt(categoryAnnotation.keypoints.count), inColorSpace: .hsl)
                 
-                self.categoryView.setUpButtons(category: categoryAnnotation, colors: colors)
+                self.categoryView?.setUpButtons(category: categoryAnnotation, colors: colors)
                 
-                self.mainImageView.categoryColors = colors
-                self.mainImageView.categoryAnnotation = categoryAnnotation
+                self.mainImageView?.categoryColors = colors
+                self.mainImageView?.categoryAnnotation = categoryAnnotation
                 
-                self.bottomControlView.imagesURL = self.imageAnnotationGroup?.imagesURL
-                self.bottomControlView.images = self.annotationInfo?.images ?? []
-                self.bottomControlView.reloadThumbnails()
+                self.bottomControlView?.imagesURL = self.imageAnnotationGroup?.imagesURL
+                self.bottomControlView?.images = self.annotationInfo?.images ?? []
+                self.bottomControlView?.reloadThumbnails()
                 
                 self.index = 0
             }
@@ -73,7 +73,7 @@ class AnnotationViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.bottomControlView.frame = self.bottomControlView.frame
+        bottomControlView?.frame = bottomControlView?.frame ?? .zero
     }
     
     func readAnnotation(completion: @escaping (Bool)->()) {
@@ -124,14 +124,14 @@ class AnnotationViewController: UIViewController {
                 print(imageInfo.file_name)
                 
                 let image = UIImage(contentsOfFile: imageURL.path)
-                self.mainImageView.image = image
+                mainImageView?.image = image
                 
                 let keypointAnnotation = annotationInfo.keypointAnnotation(of: imageInfo.id)
-                self.mainImageView.setAnnotation(keypointAnnotation: keypointAnnotation,
-                                                 index: categoryView.currentIndex)
+                mainImageView?.setAnnotation(keypointAnnotation: keypointAnnotation,
+                                                 index: categoryView?.currentIndex ?? 0)
                 
                 let bottomTitle = "\(index+1) / \(annotationInfo.images.count)"
-                self.bottomControlView.bottomTimeLabel.text = bottomTitle
+                bottomControlView?.bottomTimeLabel.text = bottomTitle
             }
         }
     }
@@ -151,8 +151,8 @@ class AnnotationViewController: UIViewController {
             annotationInfo.resetKeypointAnnotation(of: imageInfo.id)
             
             let keypointAnnotation = annotationInfo.keypointAnnotation(of: imageInfo.id)
-            self.mainImageView.setAnnotation(keypointAnnotation: keypointAnnotation,
-                                             index: categoryView.currentIndex)
+            mainImageView?.setAnnotation(keypointAnnotation: keypointAnnotation,
+                                         index: categoryView?.currentIndex ?? 0)
         }
     }
 }
@@ -160,7 +160,7 @@ class AnnotationViewController: UIViewController {
 extension AnnotationViewController: AnnotationCategoryViewDelegate {
     func changed(categoryIndex: Int) {
         print("categoryIndex: \(categoryIndex)")
-        self.mainImageView.setAnnotationIndex(index: categoryIndex)
+        mainImageView?.setAnnotationIndex(index: categoryIndex)
         save()
     }
 }
