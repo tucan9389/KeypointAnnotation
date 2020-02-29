@@ -3,12 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		554F9FD5211F3AFC00FBF04E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9FD4211F3AFC00FBF04E /* AppDelegate.swift */; };
-		554F9FD7211F3AFC00FBF04E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9FD6211F3AFC00FBF04E /* MainViewController.swift */; };
+		554F9FD7211F3AFC00FBF04E /* AnnotationGroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F9FD6211F3AFC00FBF04E /* AnnotationGroupListViewController.swift */; };
 		554F9FDA211F3AFC00FBF04E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554F9FD8211F3AFC00FBF04E /* Main.storyboard */; };
 		554F9FDC211F3AFE00FBF04E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 554F9FDB211F3AFE00FBF04E /* Assets.xcassets */; };
 		554F9FDF211F3AFE00FBF04E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554F9FDD211F3AFE00FBF04E /* LaunchScreen.storyboard */; };
@@ -17,13 +17,18 @@
 		554F9FEB211F3C9700FBF04E /* UIKit + extension in Resources */ = {isa = PBXBuildFile; fileRef = 554F9FEA211F3C9700FBF04E /* UIKit + extension */; };
 		55AE136B213260290065B794 /* Annotated.zip in Resources */ = {isa = PBXBuildFile; fileRef = 55AE136A213260290065B794 /* Annotated.zip */; };
 		7E5060C540CD748A14A2FDB3 /* Pods_KeypointAnnotation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28380CF27C5E4F69D8880B85 /* Pods_KeypointAnnotation.framework */; };
+		CEC48DD6240A86EF00052422 /* AnnotationCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC48DD5240A86EF00052422 /* AnnotationCategoryView.swift */; };
+		CEC48DD9240A874400052422 /* AnnotationImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC48DD8240A874400052422 /* AnnotationImageView.swift */; };
+		CEC48DDE240A87B800052422 /* AnnotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC48DDD240A87B800052422 /* AnnotationModel.swift */; };
+		CEC48DE0240A87EA00052422 /* AnnotationBottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC48DDF240A87EA00052422 /* AnnotationBottomControlView.swift */; };
+		CEC48DE2240A8A2E00052422 /* PointingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC48DE1240A8A2E00052422 /* PointingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		28380CF27C5E4F69D8880B85 /* Pods_KeypointAnnotation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeypointAnnotation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		554F9FD1211F3AFC00FBF04E /* KeypointAnnotation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeypointAnnotation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		554F9FD4211F3AFC00FBF04E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		554F9FD6211F3AFC00FBF04E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		554F9FD6211F3AFC00FBF04E /* AnnotationGroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationGroupListViewController.swift; sourceTree = "<group>"; };
 		554F9FD9211F3AFC00FBF04E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		554F9FDB211F3AFE00FBF04E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		554F9FDE211F3AFE00FBF04E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -33,6 +38,11 @@
 		554F9FEA211F3C9700FBF04E /* UIKit + extension */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "UIKit + extension"; sourceTree = "<group>"; };
 		55AE136A213260290065B794 /* Annotated.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Annotated.zip; sourceTree = "<group>"; };
 		C890B5484D062A6B0031B60E /* Pods-KeypointAnnotation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeypointAnnotation.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeypointAnnotation/Pods-KeypointAnnotation.release.xcconfig"; sourceTree = "<group>"; };
+		CEC48DD5240A86EF00052422 /* AnnotationCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationCategoryView.swift; sourceTree = "<group>"; };
+		CEC48DD8240A874400052422 /* AnnotationImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationImageView.swift; sourceTree = "<group>"; };
+		CEC48DDD240A87B800052422 /* AnnotationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationModel.swift; sourceTree = "<group>"; };
+		CEC48DDF240A87EA00052422 /* AnnotationBottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationBottomControlView.swift; sourceTree = "<group>"; };
+		CEC48DE1240A8A2E00052422 /* PointingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointingView.swift; sourceTree = "<group>"; };
 		CF669133AB03C68304B3F247 /* Pods-KeypointAnnotation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeypointAnnotation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KeypointAnnotation/Pods-KeypointAnnotation.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,9 +80,11 @@
 			isa = PBXGroup;
 			children = (
 				554F9FD4211F3AFC00FBF04E /* AppDelegate.swift */,
-				554F9FD6211F3AFC00FBF04E /* MainViewController.swift */,
+				554F9FD6211F3AFC00FBF04E /* AnnotationGroupListViewController.swift */,
 				554F9FE6211F3C9000FBF04E /* AnnotationViewController.swift */,
-				554F9FE7211F3C9000FBF04E /* MyFileManager.swift */,
+				CEC48DDC240A87B000052422 /* Model */,
+				CEC48DD7240A871200052422 /* View */,
+				CEC48DD2240A86D000052422 /* Common */,
 				554F9FEA211F3C9700FBF04E /* UIKit + extension */,
 				554F9FD8211F3AFC00FBF04E /* Main.storyboard */,
 				554F9FDB211F3AFE00FBF04E /* Assets.xcassets */,
@@ -81,6 +93,33 @@
 				55AE136A213260290065B794 /* Annotated.zip */,
 			);
 			path = KeypointAnnotation;
+			sourceTree = "<group>";
+		};
+		CEC48DD2240A86D000052422 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				554F9FE7211F3C9000FBF04E /* MyFileManager.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CEC48DD7240A871200052422 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEC48DD8240A874400052422 /* AnnotationImageView.swift */,
+				CEC48DE1240A8A2E00052422 /* PointingView.swift */,
+				CEC48DDF240A87EA00052422 /* AnnotationBottomControlView.swift */,
+				CEC48DD5240A86EF00052422 /* AnnotationCategoryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CEC48DDC240A87B000052422 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CEC48DDD240A87B800052422 /* AnnotationModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F70BB4BA21C1163B72C89661 /* Frameworks */ = {
@@ -214,9 +253,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				554F9FE8211F3C9000FBF04E /* AnnotationViewController.swift in Sources */,
-				554F9FD7211F3AFC00FBF04E /* MainViewController.swift in Sources */,
+				554F9FD7211F3AFC00FBF04E /* AnnotationGroupListViewController.swift in Sources */,
+				CEC48DE2240A8A2E00052422 /* PointingView.swift in Sources */,
 				554F9FD5211F3AFC00FBF04E /* AppDelegate.swift in Sources */,
+				CEC48DE0240A87EA00052422 /* AnnotationBottomControlView.swift in Sources */,
+				CEC48DD9240A874400052422 /* AnnotationImageView.swift in Sources */,
 				554F9FE9211F3C9000FBF04E /* MyFileManager.swift in Sources */,
+				CEC48DDE240A87B800052422 /* AnnotationModel.swift in Sources */,
+				CEC48DD6240A86EF00052422 /* AnnotationCategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

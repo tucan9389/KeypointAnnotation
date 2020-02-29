@@ -11,7 +11,7 @@ import Alamofire
 import ZIPFoundation
 import Toast_Swift
 
-class MainViewController: UIViewController {
+class AnnotationGroupListViewController: UIViewController {
     
     @IBOutlet weak var mainTableView: UITableView!
     
@@ -48,7 +48,7 @@ class MainViewController: UIViewController {
     }
     
     func loadImageAndAnnotationCount() {
-        let queue: DispatchQueue = DispatchQueue(label: "com.tucan.annotationloading")
+        let queue: DispatchQueue = DispatchQueue(label: "com.tucan9389.loading-annotation-list")
         queue.async {
             
             var totalAnnotatedCount: Int = 0
@@ -107,7 +107,7 @@ class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: UITableViewDataSource {
+extension AnnotationGroupListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
@@ -121,7 +121,7 @@ extension MainViewController: UITableViewDataSource {
     }
 }
 
-extension MainViewController: UITableViewDelegate {
+extension AnnotationGroupListViewController: UITableViewDelegate {
     
 }
 
