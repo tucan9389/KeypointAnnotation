@@ -11,6 +11,7 @@ import UIKit
 protocol AnnotationCategoryViewDelegate {
     func changed(categoryIndex: Int)
 }
+
 class AnnotationCategoryView: UIView {
     
     var categoryButtons: [UIButton] = []

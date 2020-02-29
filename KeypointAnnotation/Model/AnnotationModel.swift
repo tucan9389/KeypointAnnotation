@@ -26,11 +26,23 @@ class Annotation: Decodable, Encodable {
         for kp in annotations {
             if kp.id == id { return kp }
         }
-        let kp: KeypointAnnotation = KeypointAnnotation()
-        kp.id = id
-        kp.image_id = id
+        let kp = makeKeypointAnnotation(with: id)
         annotations.append(kp)
         return kp
+    }
+    
+    func makeKeypointAnnotation(with id: Int) -> KeypointAnnotation {
+        let number_of_keypoints = categories?.first?.keypoints.count
+        let kp: KeypointAnnotation = KeypointAnnotation(image_id: id, id: id, number_of_keypoints: number_of_keypoints)
+        return kp
+    }
+    
+    func resetKeypointAnnotation(of id: Int) {
+        for index in 0..<annotations.count {
+            if annotations[index].id == id {
+                annotations[index] = makeKeypointAnnotation(with: id)
+            }
+        }
     }
     
     func updateNumKeypoints() {
@@ -90,6 +102,17 @@ class KeypointAnnotation: Decodable, Encodable {
         image_id = -1
         category_id = 1
         id = -1
+    }
+    
+    convenience init(image_id: Int, id: Int, number_of_keypoints: Int?) {
+        self.init()
+        
+        self.image_id = image_id
+        self.id = id
+        
+        if let number_of_keypoints = number_of_keypoints {
+            keypoints = Array<Int>(repeating: 0, count: number_of_keypoints*3)
+        }
     }
 }
 

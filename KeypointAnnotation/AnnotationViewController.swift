@@ -12,8 +12,8 @@ import DynamicColor
 class AnnotationViewController: UIViewController {
     
     @IBOutlet weak var mainImageView: AnnotationImageView!
-    @IBOutlet weak var categoryView: AnnotationCategoryView!
     @IBOutlet weak var bottomControlView: AnnotationBottomControlView!
+    @IBOutlet weak var categoryView: AnnotationCategoryView!
     
     var imageAnnotationGroup: ImageAnnotationGroup? = nil
     var annotationInfo: Annotation? = nil
@@ -130,7 +130,6 @@ class AnnotationViewController: UIViewController {
                 self.mainImageView.setAnnotation(keypointAnnotation: keypointAnnotation,
                                                  index: categoryView.currentIndex)
                 
-                
                 let bottomTitle = "\(index+1) / \(annotationInfo.images.count)"
                 self.bottomControlView.bottomTimeLabel.text = bottomTitle
             }
@@ -146,8 +145,15 @@ class AnnotationViewController: UIViewController {
     }
     
     @objc func reset() {
-        print("reset!")
-        
+        print("reset! - index:\(index)")
+        if let annotationInfo = annotationInfo {
+            let imageInfo: ImageAnnotation = annotationInfo.images[index]
+            annotationInfo.resetKeypointAnnotation(of: imageInfo.id)
+            
+            let keypointAnnotation = annotationInfo.keypointAnnotation(of: imageInfo.id)
+            self.mainImageView.setAnnotation(keypointAnnotation: keypointAnnotation,
+                                             index: categoryView.currentIndex)
+        }
     }
 }
 
