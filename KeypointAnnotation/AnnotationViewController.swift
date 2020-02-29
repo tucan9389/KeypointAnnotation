@@ -40,10 +40,12 @@ class AnnotationViewController: UIViewController {
         print(videoInfo?.url ?? "N/A")
         readAnnotation() { success in
             DispatchQueue.main.async {
-                let categoryAnnotation: Annotation.CategoryAnnotation = Annotation.CategoryAnnotation()
-                self.annotationInfo?.categories = [
-                    categoryAnnotation
-                ]
+//                let categoryAnnotation: Annotation.CategoryAnnotation = Annotation.CategoryAnnotation()
+//                self.annotationInfo?.categories = [
+//                    categoryAnnotation
+//                ]
+                guard let categoryAnnotation: Annotation.CategoryAnnotation = self.annotationInfo?.categories?.first
+                    else { return }
                 
                 let blue   = UIColor(hexString: "#3498db")
                 let red    = UIColor(hexString: "#e74c3c")
@@ -115,7 +117,7 @@ class AnnotationViewController: UIViewController {
     func set(index: Int) {
         self.index = index
         
-        if  let annotationInfo = annotationInfo,
+        if let annotationInfo = annotationInfo,
             let imageURL = videoInfo?.imagesURL.appendingPathComponent(annotationInfo.images[index].file_name) {
             let imageInfo: Annotation.ImageAnnotation = annotationInfo.images[index]
             
@@ -229,13 +231,21 @@ class Annotation: Decodable, Encodable {
         "tjnt"
         ],*/
         let name: String//": "fingertip"
-        init() {
-            supercategory = "bust"
-            name = "body"
-            id = 1
-//            keypoints = ["index", "index DIP", "index PIP", "index MP"/*, "middle", "ring", "baby", "thumb"*/]
-            keypoints = ["head", "nose", "Rshoulder", "Lshoulder"]
-            skeleton = [[1,2], [2,3], [2,4]]
+//        init() {
+//            supercategory = "bust"
+//            name = "body"
+//            id = 1
+////            keypoints = ["index", "index DIP", "index PIP", "index MP"/*, "middle", "ring", "baby", "thumb"*/]
+//            keypoints = ["head", "nose", "Rshoulder", "Lshoulder"]
+//            skeleton = [[1,2], [2,3], [2,4]]
+//        }
+        
+        init(supercategory: String, skeleton: [[Int]], id: Int, keypoints: [String], name: String) {
+            self.supercategory = supercategory
+            self.skeleton = skeleton
+            self.id = id
+            self.keypoints = keypoints
+            self.name = name
         }
     }
     
@@ -454,6 +464,8 @@ class AnnotationCategoryView: UIView {
         let button: UIButton = UIButton()
         button.backgroundColor = color
         button.setTitle(text, for: .normal)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         button.setTitleColor(UIColor.white, for: .normal)
         self.addSubview(button)
         return button

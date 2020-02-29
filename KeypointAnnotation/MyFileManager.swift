@@ -70,7 +70,7 @@ class MyFileManager {
     
     func loadAndUnzip(completion: @escaping ()->()) {
         if let filePath = Bundle.main.path(forResource: "Annotated", ofType: "zip"),
-            let url: URL = URL(string: filePath) {
+            let url: URL = URL(string: "file://\(filePath)") {
             unzip(sourceURL: url) {
                 completion()
             }
@@ -152,7 +152,9 @@ class MyFileManager {
     public func filenames(of url: URL) -> [URL]? {
         do {
             let fileURLs: [URL] = try filemanager.contentsOfDirectory(at: url, includingPropertiesForKeys: nil)
-            return fileURLs.map({ $0.absoluteString }).sorted().map({ URL(string: $0) }).compactMap({ $0 })
+            let urlStrings = fileURLs.map({ $0.path }).sorted()
+            let urls = urlStrings.map({ URL(string: $0) })
+            return urls.compactMap({ $0 })
         } catch {
             return nil
         }
